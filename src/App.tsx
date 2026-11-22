@@ -14,10 +14,13 @@ import {
   X,
 } from 'lucide-react';
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY,
-);
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
+
+// Only create the client when the env vars are actually set (e.g. in Vercel).
+// createClient() throws at import time when the URL is missing, which used to
+// crash the whole app before React could mount and left a blank page.
+const supabase = supabaseUrl && supabaseAnonKey ? createClient(supabaseUrl, supabaseAnonKey) : null;
 
 const services = [
   { name: 'Morning Prayers & Matins', day: 'Sunday', time: '5:00 AM' },
@@ -77,6 +80,12 @@ function App() {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!supabase) {
+      // Contact form isn't wired up yet (no Supabase env vars) — don't crash,
+      // just tell the visitor to email the church office directly.
+      setFormStatus('error');
+      return;
+    }
     setFormStatus('sending');
     const form = new FormData(event.currentTarget);
     const { error } = await supabase.from('contact_messages').insert({
