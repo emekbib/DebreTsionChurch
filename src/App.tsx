@@ -128,7 +128,6 @@ function App() {
         </section>
 
         <section className="welcome-section section-pad" id="about">
-          <div className="section-label"><span>01</span></div>
           <div className="welcome-grid">
             <div>
               <p className="eyebrow">Welcome home</p>
@@ -161,7 +160,6 @@ function App() {
         </section>
 
         <section className="worship-section section-pad" id="worship">
-          <div className="section-label dark-label"><span>02</span></div>
           <div className="section-heading-row"><div><p className="eyebrow light">Come and see</p><h2>Worship with<br /><em>us.</em></h2></div><p className="heading-note">We welcome you and your family to join us in worship, prayer, and fellowship at our Ethiopian Orthodox Tewahedo Church.</p></div>
           <div className="service-table">
             <div className="table-head"><span>Weekly services</span><span>Day</span><span>Time</span></div>
@@ -172,7 +170,6 @@ function App() {
         </section>
 
         <section className="ministries-section section-pad" id="ministries">
-          <div className="section-label"><span>03</span></div>
           <div className="section-heading-row"><div><p className="eyebrow">Find your place</p><h2>Many gifts.<br /><em>One family.</em></h2></div><p className="heading-note">Our ministries bring members together to grow in faith, serve the Church, and care for one another.</p></div>
           <div className="ministries-grid">{ministries.map((ministry, index) => <article className="ministry-card" key={ministry.title}><span className="card-number">{String(index + 1).padStart(2, '0')}</span><h3>{ministry.title}</h3><p>{ministry.text}</p><button onClick={() => scrollTo('contact')}>Learn more <ArrowUpRight size={15} /></button></article>)}</div>
           <div className="get-involved"><div><p className="eyebrow">Get involved</p><h3>Share your time and talents.</h3></div><p>To join a ministry or learn about meeting schedules, contact the church office. We welcome everyone who would like to grow in faith, serve the Church, and care for one another.</p><button className="text-link" onClick={() => scrollTo('contact')}>Contact the church office <ArrowUpRight size={15} /></button></div>
