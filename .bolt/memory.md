@@ -12,16 +12,16 @@
 
 ## Visual design & UX direction
 
-- Avoid visible structural markers (e.g. "01", "02", "03" labels with decorative lines) that signal template/AI origin.
-- Sections should flow naturally without obvious numbering or scaffolding artifacts.
+- Section labels 01–04 are acceptable; use plain numbers only with no dashes or decorative lines.
+- Labels should be understated — provide structure without making the page feel templated.
 - Ministry cards may retain small item numbering when it serves functional organization.
-- Prefer clean, organic layout patterns over rigidly structured grids with decorative numbering.
+- Prefer clean, organic layout patterns over rigidly structured grids with heavy decoration.
 - Stack: Vite + React, Tailwind CSS, Lucide React icons; `@/` path alias for imports.
 
 ## Decisions, constraints & rationale
 
-- Removed numbered section markers and decorative lines to reduce AI-generated appearance and improve natural flow.
-- Kept ministry card numbering because it aids identification and is functionally distinct from section labels.
+- Reintroduced 01–04 section labels without dashes or trailing lines per user request; keeps the page organized while avoiding a cookie-cutter feel.
+- Ministry card numbering retained because it aids identification and is functionally distinct from section labels.
 - Global design constraints from `.bolt/prompt` apply (beautiful, non-cookie-cutter, production-worthy; no extra UI/icon packages unless necessary).
 
 ## Open questions & assumptions
